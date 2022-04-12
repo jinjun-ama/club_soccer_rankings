@@ -10,7 +10,7 @@ df = df.loc[df.team.isin(df.groupby(['team']).agg({'rating':'mean'}).reset_index
 st.title("Global Soccer Club Rankings Overtime")
 
 fig = px.line(
-  df, x="data", y="rating", color="team", render_mode="svg", line_shape="spline"
+  df, x="date", y="rating", color="team", render_mode="svg", line_shape="spline"
 )
 
 st.plotly_chart(fig, use_container_width=True)
