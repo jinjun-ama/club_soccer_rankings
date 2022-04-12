@@ -4,6 +4,9 @@ import plotly_express as px
 
 df = pd.read_csv("club_soccer_rankings.csv")
 
+# filter only top 25 teams by avg. ratings
+df = df.loc[df.team.isin(df.groupby(['team']).agg({'rating':'mean'}).reset_index().sort_values('rating',ascending=False).head(25)['team'].tolist())]
+
 st.title("Global Soccer Club Rankings Overtime")
 
 fig = px.line(
