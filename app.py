@@ -1,6 +1,6 @@
 import pandas as pd
 import streamlit as st
-import plotly_express as px
+import plotly.express as px
 
 df = pd.read_csv("club_soccer_rankings.csv")
 
